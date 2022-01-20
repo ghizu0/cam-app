@@ -6,8 +6,8 @@ services:
     build: ./python-worker
     environment:
       - cam=0
-      - horas=$compose_horas
-      - modo=$compose_modo
+      - horas=3
+      - modo=f
       - habitacion=dormitorio
       - start_script=start.sh
     volumes:
@@ -29,8 +29,8 @@ services:
     build: ./python-worker
     environment:
       - cam=1
-      - horas=$compose_horas
-      - modo=$compose_modo
+      - horas=3
+      - modo=f
       - habitacion=cocina
       - start_script=start.sh
     volumes:
@@ -51,8 +51,8 @@ services:
     build: ./python-worker
     environment:
       - cam=2
-      - horas=$compose_horas
-      - modo=$compose_modo
+      - horas=3
+      - modo=f
       - habitacion=distribuidor
       - start_script=start.sh
     volumes:
@@ -73,8 +73,8 @@ services:
     build: ./python-worker
     environment:
       - cam=3
-      - horas=$compose_horas
-      - modo=$compose_modo
+      - horas=3
+      - modo=f
       - habitacion=salon
       - start_script=start.sh
     volumes:
@@ -95,8 +95,8 @@ services:
     build: ./python-worker
     environment:
       - cam=4
-      - horas=$compose_horas
-      - modo=$compose_modo
+      - horas=3
+      - modo=f
       - habitacion=TV
       - start_script=start.sh
     volumes:
@@ -117,8 +117,8 @@ services:
     build: ./python-worker
     environment:
       - cam=5
-      - horas=$compose_horas
-      - modo=$compose_modo
+      - horas=3
+      - modo=f
       - habitacion=recibidor
       - start_script=start.sh
     volumes:
@@ -139,7 +139,7 @@ services:
     build: ./python-worker
     environment:
       - cam=6
-      - horas=$compose_horas
+      - horas=3
       - modo=p
       - habitacion=aseo
       - start_script=start_termal.sh
