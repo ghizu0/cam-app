@@ -1,4 +1,4 @@
-FROM nginx:1.21.5
+FROM ubuntu:20.04
 
 ENV TZ=Europe/Madrid
 ENV SSHPASS=raspberry
