@@ -12,6 +12,8 @@ services:
       - start_script=start.sh
     volumes:
       - sshvolumen-web:/volume
+    networks:
+      - shared_net
 
   servidor-web-dormitorio:
     image: localhost:5000/web-server
@@ -21,6 +23,8 @@ services:
       - script=podes_paginaweb.py
     volumes:
       - sshvolumen-web:/volume
+    networks:
+      - shared_net
 
 
 
@@ -35,6 +39,8 @@ services:
       - start_script=start.sh
     volumes:
       - sshvolumen-web:/volume
+    networks:
+      - shared_net
 
   servidor-web-cocina:
     image: localhost:5000/web-server
@@ -43,6 +49,8 @@ services:
       - habitacion=cocina
     volumes:
       - sshvolumen-web:/volume
+    networks:
+      - shared_net
 
 
 
@@ -57,6 +65,8 @@ services:
       - start_script=start.sh
     volumes:
       - sshvolumen-web:/volume
+    networks:
+      - shared_net
 
   servidor-web-distribuidor:
     image: localhost:5000/web-server
@@ -65,6 +75,8 @@ services:
       - habitacion=distribuidor
     volumes:
       - sshvolumen-web:/volume
+    networks:
+      - shared_net
 
 
 
@@ -79,6 +91,8 @@ services:
       - start_script=start.sh
     volumes:
       - sshvolumen-web:/volume
+    networks:
+      - shared_net
 
   servidor-web-salon:
     image: localhost:5000/web-server
@@ -87,6 +101,8 @@ services:
       - habitacion=salon
     volumes:
       - sshvolumen-web:/volume
+    networks:
+      - shared_net
 
 
 
@@ -101,6 +117,8 @@ services:
       - start_script=start.sh
     volumes:
       - sshvolumen-web:/volume
+    networks:
+      - shared_net
 
   servidor-web-TV:
     image: localhost:5000/web-server
@@ -109,6 +127,8 @@ services:
       - habitacion=TV
     volumes:
       - sshvolumen-web:/volume
+    networks:
+      - shared_net
 
 
 
@@ -123,6 +143,8 @@ services:
       - start_script=start.sh
     volumes:
       - sshvolumen-web:/volume
+    networks:
+      - shared_net
 
   servidor-web-recibidor:
     image: localhost:5000/web-server
@@ -131,6 +153,8 @@ services:
       - habitacion=recibidor
     volumes:
       - sshvolumen-web:/volume
+    networks:
+      - shared_net
 
 
 
@@ -140,11 +164,13 @@ services:
     environment:
       - cam=6
       - horas=$compose_horas
-      - modo=p
+      - modo=$compose_modo_aseo
       - habitacion=aseo
       - start_script=start_termal.sh
     volumes:
       - sshvolumen-web:/volume
+    networks:
+      - shared_net
 
   servidor-web-aseo:
     image: localhost:5000/web-server
@@ -153,6 +179,8 @@ services:
       - habitacion=aseo
     volumes:
       - sshvolumen-web:/volume
+    networks:
+      - shared_net
 
 
 
@@ -169,8 +197,14 @@ services:
       - servidor-web-TV
       - servidor-web-recibidor
       - servidor-web-aseo
+    networks:
+      - shared_net
 
 volumes:
   sshvolumen-web:
     external:
       name: volumen-web
+
+networks:
+  shared_net:
+    external: true
