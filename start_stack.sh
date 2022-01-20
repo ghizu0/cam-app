@@ -1,4 +1,5 @@
 #!/bin/bash
-docker-compose build
-docker-compose push
-modo= docker stack deploy -c docker-compose.yml
+cd /home/ubuntu/cam-app
+sudo docker-compose build
+sudo docker-compose push
+sudo docker stack deploy -c docker-compose.yml

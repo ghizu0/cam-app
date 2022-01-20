@@ -126,6 +126,7 @@ services:
 
   servidor-web-recibidor:
     image: localhost:5000/web-server
+    build: ./web-server
     environment:
       - habitacion=recibidor
     volumes:
